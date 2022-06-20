@@ -40,10 +40,6 @@ class AppWidgetService : RemoteViewsService() {
 
         override fun onDataSetChanged() {
             allShoppingItems = shoppingRepository.getAllShoppingItems()
-//            allShoppingItems.observeForever { list->
-//                updateList(list)
-//            }
-            Log.d("DataChange","trigger")
             if(shoppingItemList.isNotEmpty()) {
                 getViewAt(0)
             }

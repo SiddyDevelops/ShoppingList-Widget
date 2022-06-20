@@ -41,7 +41,6 @@ class ShoppingActivity : AppCompatActivity() {
             widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(applicationContext.packageName,AppWidget::class.java.name)),
                 R.id.widget_listview
             )
-            Log.d("ActivityDataChange","trigger")
         })
 
         fab.setOnClickListener {
