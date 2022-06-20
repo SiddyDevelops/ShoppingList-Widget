@@ -1,4 +1,4 @@
-package com.siddydevelops.shoppinglist
+package com.siddydevelops.shoppinglist.widgeting
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -7,9 +7,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.widget.RemoteViews
 import androidx.lifecycle.LiveData
+import com.siddydevelops.shoppinglist.R
 import com.siddydevelops.shoppinglist.data.db.ShoppingDatabase
 import com.siddydevelops.shoppinglist.data.db.entities.ShoppingItem
 import com.siddydevelops.shoppinglist.data.repositories.ShoppingRepository
@@ -42,7 +42,8 @@ class AppWidget : AppWidgetProvider() {
         }
 
         val widgetManager = AppWidgetManager.getInstance(context.applicationContext)
-        widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,AppWidget::class.java.name)),
+        widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,
+            AppWidget::class.java.name)),
             R.id.widget_listview
         )
 
@@ -61,7 +62,7 @@ class AppWidget : AppWidgetProvider() {
             val views = RemoteViews(context.packageName, R.layout.app_widget_layout)
             views.setOnClickPendingIntent(R.id.openAppTV, pendingIntent)
             views.setRemoteAdapter(R.id.widget_listview, serviceIntent)
-            views.setEmptyView(R.id.widget_listview,R.id.widget_empty_view)
+            views.setEmptyView(R.id.widget_listview, R.id.widget_empty_view)
             views.setPendingIntentTemplate(R.id.widget_listview, addPendingIntent)
             appWidgetManager!!.updateAppWidget(appWidgetId, views)
         }
@@ -70,7 +71,8 @@ class AppWidget : AppWidgetProvider() {
     override fun onEnabled(context: Context?) {
         super.onEnabled(context)
         val widgetManager = AppWidgetManager.getInstance(context?.applicationContext)
-        widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context?.applicationContext!!.packageName,AppWidget::class.java.name)),
+        widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context?.applicationContext!!.packageName,
+            AppWidget::class.java.name)),
             R.id.widget_listview
         )
     }
@@ -89,7 +91,8 @@ class AppWidget : AppWidgetProvider() {
                             shoppingRepository.updateAmount(newAmount, curName)
                             val widgetManager =
                                 AppWidgetManager.getInstance(context.applicationContext)
-                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,AppWidget::class.java.name)),
+                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,
+                                AppWidget::class.java.name)),
                                 R.id.widget_listview
                             )
                         }
@@ -100,7 +103,8 @@ class AppWidget : AppWidgetProvider() {
                             shoppingRepository.updateAmount(newAmount, curName)
                             val widgetManager =
                                 AppWidgetManager.getInstance(context.applicationContext)
-                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,AppWidget::class.java.name)),
+                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,
+                                AppWidget::class.java.name)),
                                 R.id.widget_listview
                             )
                         }
@@ -111,7 +115,8 @@ class AppWidget : AppWidgetProvider() {
                             shoppingRepository.delete(ShoppingItem(curName,curAmount))
                             val widgetManager =
                                 AppWidgetManager.getInstance(context.applicationContext)
-                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,AppWidget::class.java.name)),
+                            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(context.applicationContext.packageName,
+                                AppWidget::class.java.name)),
                                 R.id.widget_listview
                             )
                         }

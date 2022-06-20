@@ -1,12 +1,12 @@
-package com.siddydevelops.shoppinglist
+package com.siddydevelops.shoppinglist.widgeting
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.lifecycle.LiveData
+import com.siddydevelops.shoppinglist.R
 import com.siddydevelops.shoppinglist.data.db.ShoppingDatabase
 import com.siddydevelops.shoppinglist.data.db.entities.ShoppingItem
 import com.siddydevelops.shoppinglist.data.repositories.ShoppingRepository

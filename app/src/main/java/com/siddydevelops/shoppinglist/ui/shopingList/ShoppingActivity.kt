@@ -4,11 +4,10 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.siddydevelops.shoppinglist.AppWidget
+import com.siddydevelops.shoppinglist.widgeting.AppWidget
 import com.siddydevelops.shoppinglist.R
 import com.siddydevelops.shoppinglist.data.db.ShoppingDatabase
 import com.siddydevelops.shoppinglist.data.db.entities.ShoppingItem
@@ -38,7 +37,8 @@ class ShoppingActivity : AppCompatActivity() {
         viewModel.getAllShoppingItems().observe(this, Observer {
             adapter.items = it
             adapter.notifyDataSetChanged()
-            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(applicationContext.packageName,AppWidget::class.java.name)),
+            widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(ComponentName(applicationContext.packageName,
+                AppWidget::class.java.name)),
                 R.id.widget_listview
             )
         })
