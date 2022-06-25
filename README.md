@@ -10,3 +10,9 @@ If you prefer 🧑‍💻 rather than 📖, you can directly hop to this repo. F
 <p align="center">
   <img height=400px src="https://user-images.githubusercontent.com/72121163/174605662-3bbb97ed-e40e-4d23-a989-c6814270e0fd.gif" />
 <p/>
+
+## Author
+- <a href="https://siddydevelops.github.io/">Siddharth Singh</a>
+
+## Blog
+- <a href="https://medium.com/@SiddyDevelops/populating-android-app-widgets-with-room-database-713e12bdcc63">Medium Article</a>
